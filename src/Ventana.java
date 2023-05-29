@@ -1,16 +1,19 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 
 public class Ventana extends JFrame {
     JPanel northPanel;
     JPanel centerPanel;
     JPanel southPanel;
-    public Ventana(){
+
+    public Ventana() {
 
         this.setLayout(new BorderLayout());
-        northPanel= new JPanel();
-        centerPanel= new JPanel();
-        southPanel= new JPanel();
+        northPanel = new JPanel();
+        centerPanel = new JPanel();
+        southPanel = new JPanel();
 
         //botones
 
@@ -26,12 +29,12 @@ public class Ventana extends JFrame {
 
         //contraints
         GridBagConstraints constraints = new GridBagConstraints();
-        constraints.insets= new Insets(5, 10, 5, 10);
+        constraints.insets = new Insets(5, 10, 5, 10);
 
         //northPanel
         northPanel.setLayout(new GridBagLayout());
-        northPanel.add(buttonInfantil,constraints, 0);
-        northPanel.add(buttonRomantica,constraints, 1);
+        northPanel.add(buttonInfantil, constraints, 0);
+        northPanel.add(buttonRomantica, constraints, 1);
         northPanel.add(buttonTerror, constraints, 2);
 
 
@@ -46,15 +49,14 @@ public class Ventana extends JFrame {
         //centerPanel
         centerPanel.setLayout(new GridBagLayout());
         // Crear los ImagePanel
-        ImagePanel ip1 = new ImagePanel();
-        ImagePanel ip2 = new ImagePanel();
-        ImagePanel ip3 = new ImagePanel();
+        ImagePanel ip1 = new ImagePanel("infantil");
+        ImagePanel ip2 = new ImagePanel("infantil");
+        ImagePanel ip3 = new ImagePanel("infantil");
 
 // Configurar las restricciones para ocupar todo el espacio disponible
         constraints.fill = GridBagConstraints.BOTH; // Ocupar tanto el ancho como el alto del espacio disponible
         constraints.weightx = 1.0; // Peso horizontal
         constraints.weighty = 1.0; // Peso vertical
-
 
 // Agregar los ImagePanel al contenedor con las restricciones
         constraints.gridx = 0;
@@ -70,13 +72,9 @@ public class Ventana extends JFrame {
         centerPanel.add(ip3, constraints);
 
 
-
-
-
         this.add(northPanel, BorderLayout.NORTH);
         this.add(centerPanel, BorderLayout.CENTER);
         this.add(southPanel, BorderLayout.SOUTH);
-
 
 
         this.setVisible(true);
@@ -85,3 +83,4 @@ public class Ventana extends JFrame {
         this.setTitle("Hola");
     }
 }
+

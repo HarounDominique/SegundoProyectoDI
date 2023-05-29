@@ -1,14 +1,15 @@
+import javax.imageio.ImageIO;
+import java.io.IOException;
+
 public class Contador extends Thread {
+
     private int tiempo;
     private boolean activo;
-    private ImagePanel imagePanelInfantil;
-    private ImagePanel imagePanelRomantica;
-    private ImagePanel imagePanelTerror;
+    private ImagePanel imagePanel;
+    private int counter=1;
 
-    public Contador(ImagePanel imagePanelInfantil, ImagePanel imagePanelRomantica, ImagePanel imagePanelTerror) {
-        this.imagePanelInfantil = imagePanelInfantil;
-        this.imagePanelRomantica = imagePanelRomantica;
-        this.imagePanelTerror = imagePanelTerror;
+    public Contador(ImagePanel imagePanel) {
+        this.imagePanel = imagePanel;
     }
 
     public void startContador() {
@@ -19,12 +20,11 @@ public class Contador extends Thread {
                 Thread.sleep(1000); // Esperar 1 segundo
                 tiempo++;
                 if (tiempo == 3) {
+                    counter++;
                     // Cambiar imágenes en los ImagePanel
-                    imagePanelInfantil(""));
-                    imagePanelRomantica.setImage("nueva_imagen_romantica.jpg");
-                    imagePanelTerror.setImage("nueva_imagen_terror.jpg");
+                    imagePanel.setImage(ImageIO.read(getClass().getResource("/Resources/Images/" + imagePanel.getImageSource() + counter + ".jpg")));
                 }
-            } catch (InterruptedException e) {
+            } catch (InterruptedException | IOException e) {
                 e.printStackTrace();
             }
         }
@@ -35,10 +35,12 @@ public class Contador extends Thread {
     }
 
     public void resetContador() {
+        counter = 1;
         tiempo = 0;
         // Restaurar imágenes iniciales en los ImagePanel
-        imagePanelInfantil.setImage("imagen_inicial_infantil.jpg");
-        imagePanelRomantica.setImage("imagen_inicial_romantica.jpg");
-        imagePanelTerror.setImage("imagen_inicial_terror.jpg");
+        imagePanel.setImage(ImageIO.read(getClass().getResource("/Resources/Images/" + imagePanel.getImageSource() + counter + ".jpg");
+
     }
+
+
 }
