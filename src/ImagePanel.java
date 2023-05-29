@@ -17,6 +17,7 @@ public class ImagePanel extends JPanel implements Serializable {
 
         try {
             // Cargar la imagen desde la carpeta "images" dentro del proyecto
+            //image = ImageIO.read(getClass().getResource("/Resources/Images/" + imageSource + counter + ".jpg"));
             image = ImageIO.read(getClass().getResource("/Resources/Images/" + imageSource + counter + ".jpg"));
         } catch (Exception e) {
             e.printStackTrace();

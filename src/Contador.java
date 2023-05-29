@@ -20,9 +20,17 @@ public class Contador extends Thread {
                 Thread.sleep(1000); // Esperar 1 segundo
                 tiempo++;
                 if (tiempo == 3) {
-                    counter++;
-                    // Cambiar imágenes en los ImagePanel
-                    imagePanel.setImage(ImageIO.read(getClass().getResource("/Resources/Images/" + imagePanel.getImageSource() + counter + ".jpg")));
+                    if(counter!=3){
+                        counter++;
+                        // Cambiar imágenes en los ImagePanel
+                        imagePanel.setImage(ImageIO.read(getClass().getResource("/Resources/Images/" + imagePanel.getImageSource() + counter + ".jpg")));
+                        tiempo = 0;
+                    }else{
+                        counter=1;
+                        // Cambiar imágenes en los ImagePanel
+                        imagePanel.setImage(ImageIO.read(getClass().getResource("/Resources/Images/" + imagePanel.getImageSource() + counter + ".jpg")));
+                        tiempo = 0;
+                    }
                 }
             } catch (InterruptedException | IOException e) {
                 e.printStackTrace();
@@ -41,6 +49,4 @@ public class Contador extends Thread {
         imagePanel.setImage(ImageIO.read(getClass().getResource("/Resources/Images/" + imagePanel.getImageSource() + counter + ".jpg")));
 
     }
-
-
 }

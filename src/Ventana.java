@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 
@@ -7,6 +9,10 @@ public class Ventana extends JFrame {
     JPanel northPanel;
     JPanel centerPanel;
     JPanel southPanel;
+
+    Contador c1;
+    Contador c2;
+    Contador c3;
 
     public Ventana() {
 
@@ -50,6 +56,13 @@ public class Ventana extends JFrame {
         centerPanel.setLayout(new GridBagLayout());
         // Crear los ImagePanel
         ImagePanel ip1 = new ImagePanel("infantil");
+        c1 = new Contador(ip1);
+        buttonInfantil.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                c1.startContador();
+            }
+        });
         ImagePanel ip2 = new ImagePanel("infantil");
         ImagePanel ip3 = new ImagePanel("infantil");
 
