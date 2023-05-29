@@ -1,4 +1,5 @@
 public class Contador extends Thread {
+    /*
     private int tiempo;
     private boolean activo;
     private ImagePanel imagePanelInfantil;
@@ -41,4 +42,6 @@ public class Contador extends Thread {
         imagePanelRomantica.setImage("imagen_inicial_romantica.jpg");
         imagePanelTerror.setImage("imagen_inicial_terror.jpg");
     }
+
+     */
 }
