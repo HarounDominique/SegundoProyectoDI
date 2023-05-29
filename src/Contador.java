@@ -34,11 +34,11 @@ public class Contador extends Thread {
         activo = false;
     }
 
-    public void resetContador() {
+    public void resetContador() throws IOException {
         counter = 1;
         tiempo = 0;
         // Restaurar imágenes iniciales en los ImagePanel
-        imagePanel.setImage(ImageIO.read(getClass().getResource("/Resources/Images/" + imagePanel.getImageSource() + counter + ".jpg");
+        imagePanel.setImage(ImageIO.read(getClass().getResource("/Resources/Images/" + imagePanel.getImageSource() + counter + ".jpg")));
 
     }
 
